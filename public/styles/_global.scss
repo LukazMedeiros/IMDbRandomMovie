@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Josefin+Sans:wght@100;300;400&display=swap");
+
+$defaultFont: "Josefin Sans", sans-serif;
+$emphasisFont: "Amatic SC", cursive;
+
+$light-gray: #f9f8f8;
+$dark-gray: #cdd3ce;
+$green: #468189;
+$purple: #531cb3;
+$lavender: #bbb5bd;
+
+//
+
+@mixin flex($justify, $align) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+//
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: 1px solid red;
+
+  font-family: $defaultFont;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+}
+
+.sr-only {
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+body,
+button,
+input,
+textarea {
+  font-size: clamp(14px, 1.6rem, 2vw);
+}
+
+@for $i from 1 through 6 {
+  h#{$i} {
+    font-family: $emphasisFont;
+  }
+}
+
+ul {
+  list-style: none;
+}

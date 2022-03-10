@@ -1,0 +1,19 @@
+[data-theme="light"] {
+  --color: #333;
+  --bg-color: #fff;
+}
+
+[data-theme="dark"] {
+  --bg-color: #333;
+  --color: #fff;
+}
+
+*::selection {
+  background-color: var(--color);
+  color: var(--bg-color);
+}
+
+html {
+  background-color: var(--bg-color);
+  color: var(--color);
+}
