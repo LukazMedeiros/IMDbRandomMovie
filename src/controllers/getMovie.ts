@@ -26,9 +26,9 @@ async function getMovie(request: Request, response: Response) {
 
   const movieInfo = await getImbdMovieInfo(data.id);
 
-  //   return response.json(movieInfo);
+  return response.json(movieInfo);
 
-  return response.render("index", { data: movieInfo });
+  // return response.render("index", { data: movieInfo });
 }
 
 export { getMovie };

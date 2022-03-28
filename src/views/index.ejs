@@ -1,44 +1,50 @@
 <!DOCTYPE html>
-<html lang="pt-br" data-theme="light">
+<html lang="en" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Movie | nome do filme</title>
+    <title>Random Movie</title>
     <link rel="stylesheet" href="/styles/darkMode.css">
-    <link rel="stylesheet" href="/styles/index.css">
+    <link rel="stylesheet" href="styles/index.css">
     <script src="/scripts/handleDarkMode.js" type="module" defer></script>
 </head>
 
 <body>
-
-    <div id="home" class="flex-row">
-        <header class="flex-row col-sm-12">
+    <div id="home">
+        <header>
             <a href="/">
                 <img src="#" alt="logotipo">
             </a>
             <input type="checkbox" name="switch" id="switch">
         </header>
-        <main class="flex-row col-sm-10">
-            <div class="col-md-3 col-sm-4">aside</div>
-            <div class="col-md-9 col-sm-8">
-                <h1>titulo</h1>
-                <ul>
-                    <li>item 1</li>
-                    <li>item 2</li>
-                    <li>item 3</li>
-                    <li>item 4</li>
-                    <li>item 5</li>
-                    <li>item 6</li>
-                    <li>item 7</li>
-                    <li>item 8</li>
-                </ul>
+        <main>
+            <div class="content">
+                <form action="/movie" method="get">
+                    <div class="form-control">
+                        <label for="category">Select a category</label>
+                        <input type="text" name="category" id="category" list="categories">
+                        <datalist id="categories">
+
+                            <% genres.forEach((genre)=>{ %>
+
+                                <option value="<%=genre%>"></option>
+
+                                <% }) %>
+
+                        </datalist>
+                    </div>
+                    <div class="form-control">
+                        <label for="year">Select a year</label>
+                        <input type="number" name="year" id="year" min="1895" max="<%-year%>">
+                    </div>
+                    <div class="form-control"></div>
+                </form>
             </div>
         </main>
-        <footer class="flex-row col-sm-12">footer</footer>
+        <footer>footer</footer>
     </div>
-
 </body>
 
 </html>
