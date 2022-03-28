@@ -31,7 +31,11 @@ async function getMovie(request: Request, response: Response) {
     return response.json({ error: "filme nao encontrado" });
   }
 
-  return response.render("movie", { movieInfo });
+  const actors = movieInfo.actors.map((actor) => {
+    return actor.name;
+  });
+
+  return response.render("movie", { movieInfo, actors });
 }
 
 export { getMovie };

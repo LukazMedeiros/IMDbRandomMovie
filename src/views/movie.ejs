@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/styles/darkMode.css">
     <link rel="stylesheet" href="/styles/movie.css">
     <script src="/scripts/handleDarkMode.js" type="module" defer></script>
+    <script src="/scripts/handleFooter.js" type="module" defer></script>
 </head>
 
 <body>
@@ -56,16 +57,20 @@
                             </p>
                         </li>
                         <li>
-                            <p>Actors: <%=movieInfo.actors.name%>
+                            <p>actors: <%=actors%>
                             </p>
+
                         </li>
                     </ul>
                 </div>
             </div>
         </main>
-        <footer>footer</footer>
+        <footer>
+        </footer>
     </div>
-
+    <script>
+        window.history.pushState({}, "id", "/<%=movieInfo.id%>");
+    </script>
 </body>
 
 </html>

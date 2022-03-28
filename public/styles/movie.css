@@ -268,11 +268,17 @@ ul {
       -ms-flex-align: center;
           align-items: center;
   padding: 1rem;
+  overflow: scroll;
 }
 
 #movie main #content {
   width: 100%;
   height: 100%;
+}
+
+#movie #image-container img {
+  height: auto;
+  width: 100%;
 }
 
 #movie #info-container {
