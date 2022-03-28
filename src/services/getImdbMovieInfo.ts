@@ -13,6 +13,10 @@ async function getImbdMovieInfo(id: string) {
 
   const response = await axios.request(options);
 
+  if (!response) {
+    return null;
+  }
+
   return response.data;
 }
 

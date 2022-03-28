@@ -21,14 +21,17 @@ async function getMovie(request: Request, response: Response) {
 
   const data = await getImdbMovieId(genre, year);
 
-  console.log("id retornado ", data.id);
-  console.log("poster url ", data.primaryImage.url);
+  if (!data) {
+    return response.json({ error: "filme nao encontrado" });
+  }
 
   const movieInfo = await getImbdMovieInfo(data.id);
 
-  return response.json(movieInfo);
+  if (!movieInfo) {
+    return response.json({ error: "filme nao encontrado" });
+  }
 
-  // return response.render("index", { data: movieInfo });
+  return response.render("movie", { movieInfo });
 }
 
 export { getMovie };

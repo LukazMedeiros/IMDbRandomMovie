@@ -21,11 +21,11 @@
         </header>
         <main>
             <div class="content">
-                <form action="/movie" method="get">
+                <form action="/movies" method="get">
                     <div class="form-control">
-                        <label for="category">Select a category</label>
-                        <input type="text" name="category" id="category" list="categories">
-                        <datalist id="categories">
+                        <label for="category">Select a genre</label>
+                        <input type="text" name="genre" id="genre" list="genres">
+                        <datalist id="genres">
 
                             <% genres.forEach((genre)=>{ %>
 
@@ -39,7 +39,9 @@
                         <label for="year">Select a year</label>
                         <input type="number" name="year" id="year" min="1895" max="<%-year%>">
                     </div>
-                    <div class="form-control"></div>
+                    <div class="form-control">
+                        <input type="submit" value="Search">
+                    </div>
                 </form>
             </div>
         </main>

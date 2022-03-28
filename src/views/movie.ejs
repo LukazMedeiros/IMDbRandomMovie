@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Movie | nome do filme</title>
+    <title>Random Movie | <%=movieInfo.title%>
+    </title>
     <link rel="stylesheet" href="/styles/darkMode.css">
     <link rel="stylesheet" href="/styles/movie.css">
     <script src="/scripts/handleDarkMode.js" type="module" defer></script>
@@ -23,31 +24,40 @@
         <main>
             <div id="content" class="flex-row">
                 <div id="image-container" class="col-lg-3 col-md-6 col-sm-12">
-                    <img src="#" alt="poster do filme">
+                    <img src="<%=movieInfo.image%>" alt="<%=movieInfo.title%> movie poster">
                 </div>
                 <div id="info-container" class="col-lg-9 col-md-6 col-sm-12">
-                    <h1>titulo</h1>
+                    <h1>
+                        <%=movieInfo.title%>
+                    </h1>
                     <ul>
                         <li>
-                            <p>Rating: </p>
+                            <p>Rating: <%=movieInfo.rating%>
+                            </p>
                         </li>
                         <li>
-                            <p>Type: </p>
+                            <p>Type: <%=movieInfo.imdb_type%>
+                            </p>
                         </li>
                         <li>
-                            <p>Run Time: </p>
+                            <p>Run Time: <%=movieInfo.runtime%>
+                            </p>
                         </li>
                         <li>
-                            <p>Genres: </p>
+                            <p>Genres: <%=movieInfo.genres%>
+                            </p>
                         </li>
                         <li>
-                            <p>Languages: </p>
+                            <p>Languages: <%=movieInfo.languages%>
+                            </p>
                         </li>
                         <li>
-                            <p>Description: </p>
+                            <p>Description: <%=movieInfo.description%>
+                            </p>
                         </li>
                         <li>
-                            <p>Actors: </p>
+                            <p>Actors: <%=movieInfo.actors.name%>
+                            </p>
                         </li>
                     </ul>
                 </div>
