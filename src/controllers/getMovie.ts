@@ -19,7 +19,7 @@ async function getMovie(request: Request, response: Response) {
       .json({ status: "error", message: "A genre must be entered" });
   }
 
-  const data = await getImdbMovieId(genre, year);
+  const data = await getImdbMovieId(genre.toString(), Number(year));
 
   if (!data) {
     return response.json({ error: "filme nao encontrado" });
@@ -31,7 +31,7 @@ async function getMovie(request: Request, response: Response) {
     return response.json({ error: "filme nao encontrado" });
   }
 
-  const actors = movieInfo.actors.map((actor) => {
+  const actors = movieInfo.actors.map((actor: { name: string }) => {
     return actor.name;
   });
 

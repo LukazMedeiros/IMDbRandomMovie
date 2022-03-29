@@ -1,9 +1,9 @@
 import axios from "axios";
 
-async function getImdbMovieId(genre: string, year: Date) {
+async function getImdbMovieId(genre: string, year: number) {
   const randomPage = Math.floor(Math.random() * (500 - 1) + 1);
 
-  const options = {
+  const options: any = {
     method: "GET",
     url: "https://data-imdb1.p.rapidapi.com/titles",
     params: {
@@ -20,9 +20,9 @@ async function getImdbMovieId(genre: string, year: Date) {
     },
   };
 
-  const response = await axios.request(options);
+  const { data } = await axios.request(options);
 
-  return response.data.results[0];
+  return data.results[0];
 }
 
 export { getImdbMovieId };

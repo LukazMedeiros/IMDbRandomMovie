@@ -1,7 +1,7 @@
 import axios from "axios";
 
 async function getGenres() {
-  const options = {
+  const options: any = {
     method: "GET",
     url: "https://data-imdb1.p.rapidapi.com/titles/utils/genres",
     headers: {
@@ -10,9 +10,9 @@ async function getGenres() {
     },
   };
 
-  const result = await axios.request(options);
+  const { data } = await axios.request(options);
 
-  const genres = result.data.results.filter((genre: string) => {
+  const genres = data.results.filter((genre: string) => {
     if (genre) {
       return genre;
     }

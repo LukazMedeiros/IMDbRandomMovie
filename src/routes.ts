@@ -7,8 +7,8 @@ const route = Router();
 
 route.get("/", renderHome);
 
-route.get("/:id", getMovieById);
-
 route.get("/movies", getMovie);
+
+route.get("/:id", getMovieById);
 
 export { route };

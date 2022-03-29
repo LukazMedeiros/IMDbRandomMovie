@@ -14,7 +14,7 @@ async function getMovieById(request: Request, response: Response) {
     return response.json({ error: "filme nao encontrado" });
   }
 
-  const actors = movieInfo.actors.map((actor) => {
+  const actors = movieInfo.actors.map((actor: { name: string }) => {
     return actor.name;
   });
 

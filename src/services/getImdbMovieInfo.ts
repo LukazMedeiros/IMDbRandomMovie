@@ -1,7 +1,7 @@
 import axios from "axios";
 
 async function getImbdMovieInfo(id: string) {
-  const options = {
+  const options: any = {
     method: "GET",
     url: "https://movie-details1.p.rapidapi.com/imdb_api/movie",
     params: { id },
@@ -11,13 +11,13 @@ async function getImbdMovieInfo(id: string) {
     },
   };
 
-  const response = await axios.request(options);
+  const { data } = await axios.request(options);
 
-  if (!response) {
+  if (!data) {
     return null;
   }
 
-  return response.data;
+  return data;
 }
 
 export { getImbdMovieInfo };
