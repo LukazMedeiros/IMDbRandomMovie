@@ -14,7 +14,7 @@
   main {
     @include flex(center, center);
     padding: 1rem;
-    overflow: scroll;
+    overflow: auto;
 
     #content {
       width: 100%;
@@ -34,11 +34,17 @@
 
     li {
       margin-top: 1rem;
+      filter: opacity(75%);
+
+      & span {
+        font-weight: bolder;
+      }
     }
   }
 
   footer {
     @include flex(center, center);
     padding: 1rem;
+    filter: opacity(50%);
   }
 }

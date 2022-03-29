@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Random movie generator from year and genre">
     <title>Random Movie</title>
     <link rel="stylesheet" href="/styles/darkMode.css">
     <link rel="stylesheet" href="styles/index.css">
@@ -16,15 +17,16 @@
     <div id="home">
         <header>
             <a href="/">
-                <img src="#" alt="logotipo">
+                <img src="#" alt="logotipo" loading="lazy">
             </a>
+            <label for="switch" class="sr-only">dark mode switch</label>
             <input type="checkbox" name="switch" id="switch">
         </header>
         <main>
             <div id="content">
                 <form action="/movies" method="get">
                     <div class="form-control">
-                        <label for="category">Select a genre</label>
+                        <label for="genre">Select a genre</label>
                         <input type="text" name="genre" id="genre" list="genres">
                         <datalist id="genres">
 

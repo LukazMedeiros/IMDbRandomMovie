@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Random movie generator from year and genre">
     <title>Random Movie | <%=movieInfo.title%>
     </title>
     <link rel="stylesheet" href="/styles/darkMode.css">
@@ -18,14 +19,15 @@
     <div id="movie">
         <header>
             <a href="/">
-                <img src="#" alt="logotipo">
+                <img src="#" alt="logotipo" loading="lazy">
             </a>
+            <label for="switch" class="sr-only">dark mode switch</label>
             <input type="checkbox" name="switch" id="switch">
         </header>
         <main>
             <div id="content" class="flex-row">
                 <div id="image-container" class="col-lg-3 col-md-6 col-sm-12">
-                    <img src="<%=movieInfo.image%>" alt="<%=movieInfo.title%> movie poster">
+                    <img src="<%=movieInfo.image%>" alt="<%=movieInfo.title%> movie poster" loading="lazy">
                 </div>
                 <div id="info-container" class="col-lg-9 col-md-6 col-sm-12">
                     <h1>
@@ -33,31 +35,38 @@
                     </h1>
                     <ul>
                         <li>
-                            <p>Rating: <%=movieInfo.rating%>
+                            <p><span>Rating:</span>
+                                <%=movieInfo.rating%>
                             </p>
                         </li>
                         <li>
-                            <p>Type: <%=movieInfo.imdb_type%>
+                            <p><span>Type:</span>
+                                <%=movieInfo.imdb_type%>
                             </p>
                         </li>
                         <li>
-                            <p>Run Time: <%=movieInfo.runtime%>
+                            <p><span>Run Time:</span>
+                                <%=movieInfo.runtime%>
                             </p>
                         </li>
                         <li>
-                            <p>Genres: <%=movieInfo.genres%>
+                            <p><span>Genres:</span>
+                                <%=movieInfo.genres%>
                             </p>
                         </li>
                         <li>
-                            <p>Languages: <%=movieInfo.languages%>
+                            <p><span>Languages:</span>
+                                <%=movieInfo.languages%>
                             </p>
                         </li>
                         <li>
-                            <p>Description: <%=movieInfo.description%>
+                            <p><span>Description:</span>
+                                <%=movieInfo.description%>
                             </p>
                         </li>
                         <li>
-                            <p>actors: <%=actors%>
+                            <p><span>Actors:</span>
+                                <%=actors%>
                             </p>
 
                         </li>
