@@ -1,5 +1,13 @@
 import axios from "axios";
 
+const control = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      reject("Error! API timeout reached");
+    }, 1000);
+  });
+};
+
 async function getImdbMovieId(genre: string, year: number) {
   const randomPage = Math.floor(Math.random() * (500 - 1) + 1);
 
@@ -20,9 +28,17 @@ async function getImdbMovieId(genre: string, year: number) {
     },
   };
 
-  const { data } = await axios.request(options);
+  let id;
 
-  return data.results[0];
+  await Promise.race([control(), axios.request(options)])
+    .then((response) => {
+      id = response.data.results[0];
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+
+  return id;
 }
 
 export { getImdbMovieId };

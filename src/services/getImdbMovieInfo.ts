@@ -1,5 +1,13 @@
 import axios from "axios";
 
+const control = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      reject("Error! API timeout reached");
+    }, 1000);
+  });
+};
+
 async function getImbdMovieInfo(id: string) {
   const options: any = {
     method: "GET",
@@ -11,13 +19,21 @@ async function getImbdMovieInfo(id: string) {
     },
   };
 
-  const { data } = await axios.request(options);
+  let movieData;
 
-  if (!data) {
-    return null;
-  }
+  await Promise.race([control(), axios.request(options)])
+    .then((response) => {
+      if (!response.data) {
+        movieData = null;
+      }
 
-  return data;
+      movieData = response.data;
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+
+  return movieData;
 }
 
 export { getImbdMovieInfo };

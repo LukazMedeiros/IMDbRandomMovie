@@ -1,5 +1,13 @@
 import axios from "axios";
 
+const control = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      reject("Error! API timeout reached");
+    }, 1000);
+  });
+};
+
 async function getGenres() {
   const options: any = {
     method: "GET",
@@ -10,13 +18,21 @@ async function getGenres() {
     },
   };
 
-  const { data } = await axios.request(options);
+  let genres;
 
-  const genres = data.results.filter((genre: string) => {
-    if (genre) {
-      return genre;
-    }
-  });
+  await Promise.race([control(), axios.request(options)])
+    .then((response) => {
+      const genresAPI = response.data.results;
+
+      genres = genresAPI.filter((genre: string) => {
+        if (genre) {
+          return genre;
+        }
+      });
+    })
+    .catch((error) => {
+      console.error(error);
+    });
 
   return genres;
 }
